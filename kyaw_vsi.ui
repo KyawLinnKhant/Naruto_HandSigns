@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1215</width>
+    <height>726</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+    background-color: rgb(255, 100, 120);  /* more red, less pastel */
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 80, 100);   /* slightly darker on hover */
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);  /* red glow */
+}</string>
+  </property>
+  <widget class="QPushButton" name="StartPB">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>660</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(144, 238, 144);  /* light pastel green */
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 220, 120);  /* slightly deeper on hover */
+    outline: 4px solid rgba(0, 255, 0, 1);  /* maximum green glow */
+    outline-offset: 0px;
+    border: none;
+    box-shadow: 0 0 16px rgba(0, 255, 0, 0.9); /* outer green glow effect */
+}</string>
+   </property>
+   <property name="text">
+    <string>Start Cam</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="StopPB">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>660</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 170);  /* soft pastel yellow */
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    outline: none;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 245, 140);  /* slightly deeper yellow */
+    outline: 4px solid rgba(255, 215, 0, 1);  /* strongest solid yellow */
+    outline-offset: 0px;
+    box-shadow: 0 0 16px rgba(255, 215, 0, 1);  /* intense yellow glow */
+}</string>
+   </property>
+   <property name="text">
+    <string>Stop Cam</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="MPview">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>70</y>
+     <width>301</width>
+     <height>187</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGraphicsView {
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: #1e1e1e;  /* soft dark background */
+}</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="FR">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>280</y>
+     <width>101</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    color: rgb(204, 153, 255);  /* pastel purple text */
+    font-size: 18px;
+    font-weight: bold;
+    spacing: 8px;
+}
+
+/* Base indicator box */
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+
+/* Glow on hover */
+QCheckBox::indicator:hover {
+    border: 2px solid rgb(180, 100, 240);  /* darker purple border */
+    box-shadow: 0 0 8px rgb(180, 100, 240);  /* darker purple glow */
+}
+
+/* Glow when checked */
+QCheckBox::indicator:checked {
+    background-color: rgb(204, 153, 255);  /* pastel purple fill */
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgb(150, 0, 220);  /* deeper purple glow */
+}</string>
+   </property>
+   <property name="text">
+    <string> Facial</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>16</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SnapPB">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>660</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(173, 216, 230);  /* light pastel blue */
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+QPushButton:hover {
+    background-color: rgb(158, 204, 223);  /* slightly darker on hover */
+    outline: 4px solid rgba(0, 140, 255, 1);  /* strong full blue outline */
+    outline-offset: 0px;
+    box-shadow: 0 0 16px rgba(0, 140, 255, 0.9); /* glowing effect */
+}</string>
+   </property>
+   <property name="text">
+    <string>Snapshot</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>10</y>
+     <width>281</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:700; font-style:italic;&quot;&gt;Live MediaPipe Landmarks&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>20</y>
+     <width>371</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; font-weight:700; font-style:italic;&quot;&gt;Kyaw VSI CW2 [Live WebCam]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="QuitPB">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>660</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(255, 100, 120);  /* main red button */
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
+    border: 2px solid transparent;  /* neutral border */
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 80, 100);  /* darker on hover */
+    border: 2px solid rgba(255, 0, 0, 0.6);  /* red glow border */
+    outline: 2px solid rgba(255, 0, 0, 0.3); /* subtle outer glow */
+    outline-offset: 0px;
+}</string>
+   </property>
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="GD">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>340</y>
+     <width>101</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    color: rgb(255, 179, 102);  /* pastel orange */
+    font-size: 18px;
+    font-weight: bold;
+    spacing: 8px;
+}
+
+/* Indicator box */
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+
+/* Glow on hover */
+QCheckBox::indicator:hover {
+    border: 2px solid rgb(255, 204, 153);  /* soft border */
+    box-shadow: 0 0 8px rgb(255, 140, 0);  /* darker orange glow */
+}
+
+/* Glow when checked */
+QCheckBox::indicator:checked {
+    background-color: rgb(255, 179, 102);  /* pastel fill */
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgb(255, 128, 0);  /* bold orange glow */
+}</string>
+   </property>
+   <property name="text">
+    <string>Gesture</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>16</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QSlider" name="Slider">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>490</y>
+     <width>281</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSlider::groove:horizontal {
+    border: none;
+    height: 8px;
+    border-radius: 4px;
+    background: qlineargradient(
+        spread:pad,
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 rgba(0, 191, 255, 150),
+        stop:0.5 rgba(135, 206, 250, 220),
+        stop:1 rgba(0, 191, 255, 150)
+    );
+}
+
+QSlider::handle:horizontal {
+    image: url(&quot;shuriken.png&quot;);
+    width: 40px;
+    height: 40px;
+    margin: -18px 0;
+    background: transparent;
+    border: none;
+}</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Orientation::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>420</y>
+     <width>191</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;
+  &lt;head/&gt;
+  &lt;body&gt;
+    &lt;p&gt;
+      &lt;span style=&quot;font-size:18pt; font-weight:600; font-style:italic; color: white;&quot;&gt;
+        Confidence Threshold:
+      &lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</string>
+   </property>
+   <property name="wordWrap">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="THtextEdit">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>430</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTextEdit {
+    background-color: rgb(30, 30, 30);
+    color: rgb(220, 220, 220);
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 10px;
+    padding: 8px;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    selection-background-color: rgb(255, 192, 203);
+    selection-color: black;
+}
+
+/* Glow on hover */
+QTextEdit:hover {
+    border: 2px solid rgb(255, 160, 200);
+    box-shadow: 0 0 8px rgb(255, 160, 200);
+}
+
+/* Glow on focus */
+QTextEdit:focus {
+    border: 2px solid rgb(255, 200, 220);
+    box-shadow: 0 0 12px rgb(255, 200, 220);
+}
+
+/* Hide scrollbars visually and functionally */
+QTextEdit QScrollBar:vertical,
+QTextEdit QScrollBar:horizontal {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+    border: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="Manual">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>550</y>
+     <width>321</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="MainView">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>80</y>
+     <width>791</width>
+     <height>501</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="BR">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>340</y>
+     <width>161</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    color: rgb(255, 0, 144);  /* magenta text */
+    font-size: 18px;
+    font-weight: bold;
+    spacing: 8px;
+}
+
+/* Base indicator box */
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+
+/* Glow on hover */
+QCheckBox::indicator:hover {
+    border: 2px solid rgb(255, 0, 144);  /* magenta border */
+    box-shadow: 0 0 8px rgb(255, 0, 144);  /* magenta glow */
+}
+
+/* Glow when checked */
+QCheckBox::indicator:checked {
+    background-color: rgb(255, 0, 144);  /* magenta fill */
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgb(200, 0, 120);  /* deeper magenta glow */
+}</string>
+   </property>
+   <property name="text">
+    <string>Brightness</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>16</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Vol">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>280</y>
+     <width>101</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    color: rgb(102, 255, 255);  /* pastel cyan */
+    font-size: 18px;
+    font-weight: bold;
+    spacing: 8px;
+}
+
+/* Indicator box */
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+
+/* Glow on hover */
+QCheckBox::indicator:hover {
+    border: 2px solid rgb(153, 255, 255);  /* soft cyan border */
+    box-shadow: 0 0 8px rgb(0, 200, 255);  /* vibrant cyan glow */
+}
+
+/* Glow when checked */
+QCheckBox::indicator:checked {
+    background-color: rgb(102, 255, 255);  /* pastel cyan fill */
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgb(0, 180, 255);  /* deeper cyan glow */
+}</string>
+   </property>
+   <property name="text">
+    <string>Volume</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>16</height>
+    </size>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
